@@ -16,7 +16,7 @@ export class CatalogoPokemon {
        this.pokemons.push(pokemon)
 
        console.log(`Pokemon ${pokemon.nome} adicionado com sucesso`)
-    }
+    };
 
     listar(): void {
         if(this.pokemons.length === 0){
@@ -25,8 +25,22 @@ export class CatalogoPokemon {
         }
 
          this.pokemons.forEach((pokemon) => {
-            console.log(pokemon.nome)
+            console.log(`#${pokemon.id} - ${pokemon.nome} | Tipos: ${pokemon.tipos} | Altura: ${pokemon.altura} | Peso: ${pokemon.peso}`)
         })
+    };
+
+
+    remover(id: number): void {
+        const existe = this.pokemons.some((pokemon) => pokemon.id === id);
+
+        if(existe === false){
+            console.log("[AVISO] Nenhum Pokémon encontrado com esse ID.")
+            return;
+        }
+
+        this.pokemons = this.pokemons.filter((pokemon) => pokemon.id !== id )
+        console.log("[OK] Pokémon removido do catálogo.")
+        
     }
 
 }
