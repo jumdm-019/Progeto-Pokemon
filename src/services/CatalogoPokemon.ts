@@ -8,7 +8,7 @@ export class CatalogoPokemon {
        const jaExiste = this.pokemons.some((item) => item.id === pokemon.id); 
 
        if(jaExiste === true){
-        console.log(`[AVISO] ${pokemon.nome} ja está no catálogo.`)
+        console.log(`[AVISO] ${pokemon.nome} já está no catálogo.`)
         return;
        }
 
@@ -20,7 +20,7 @@ export class CatalogoPokemon {
 
     listar(): void {
         if(this.pokemons.length === 0){
-            console.log("[Aviso] Catálogo vazio.")
+            console.log("[AVISO] Catálogo vazio.")
             return;
         }
 
