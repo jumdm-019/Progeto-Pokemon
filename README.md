@@ -115,9 +115,11 @@ O sistema verifica o ID do Pokémon antes de adicioná-lo.
 Exemplo:
 
 ```text
+2 - Adicionar Pokémon ao catálogo
+
 Digite o nome ou ID do Pokémon: pikachu
 
-[AVISO] pikachu ja está no catálogo.
+[AVISO] pikachu já está no catálogo.
 ```
 
 ### 4. Listar catálogo
@@ -160,7 +162,7 @@ Exemplo:
 Digite o nome ou ID do Pokémon: pokemon456
 
 [ERRO] Pokémon não encontrado: pokemon456
-[AVISO] Pokémon não encontrado.
+Pokemon não existe.
 ```
 
 ## Estrutura do projeto
@@ -272,7 +274,7 @@ Saída:
 
 ```text
 [ERRO] Pokémon não encontrado: pokemon456
-[AVISO] Pokémon não encontrado.
+Pokemon não existe.
 ```
 
 ### Duplicidade
@@ -280,15 +282,31 @@ Saída:
 Entrada:
 
 ```text
-adicionar pikachu
-adicionar pikachu
+2 - Adicionar Pokémon ao catálogo
+
+Digite o nome ou ID do Pokémon: pikachu
 ```
 
-Saída:
+Saída 1:
 
 ```text
 Pokemon pikachu adicionado com sucesso
-[AVISO] pikachu ja está no catálogo.
+
+```
+
+Entrada:
+
+```text
+2 - Adicionar Pokémon ao catálogo
+
+Digite o nome ou ID do Pokémon: pikachu
+```
+
+Saída 2:
+
+```text
+[AVISO] pikachu já está no catálogo.
+
 ```
 
 ### Remoção
@@ -309,8 +327,8 @@ Saída:
 
 O projeto utiliza uma organização baseada em branches para separar o desenvolvimento das funcionalidades e da documentação.
 
-* `main` — versão final e estável do projeto;
-* `develop` — branch de desenvolvimento e integração;
+* `main` — branch principal do projeto;
+* `develop` — branch de desenvolvimento e integração, contendo a versão atual do projeto;
 * `feat/pokedex` — desenvolvimento das funcionalidades principais da Pokédex;
 * `docs/readme` — desenvolvimento da documentação do projeto.
 
