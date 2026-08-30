@@ -1,9 +1,20 @@
 import {PokemonResumo} from "../models/Pokemon"
+import { BoxService } from "./BoxService";
 
 export class CatalogoPokemon {
     private pokemons : PokemonResumo[] = []
+    private boxService: BoxService
 
-    adicionar(pokemon: PokemonResumo): void{
+    constructor() {
+        this.boxService = new BoxService();
+    }
+
+    async carregar(): Promise<void> {
+        const pokemons = await this.boxService.ler();
+        this.pokemons = pokemons;
+    }
+
+   async adicionar(pokemon: PokemonResumo): Promise<void>{
         
        const jaExiste = this.pokemons.some((item) => item.id === pokemon.id); 
 
@@ -14,6 +25,8 @@ export class CatalogoPokemon {
 
 
        this.pokemons.push(pokemon)
+
+      await this.boxService.salvar(this.pokemons)
 
        console.log(`Pokemon ${pokemon.nome} adicionado com sucesso`)
     };
@@ -30,7 +43,7 @@ export class CatalogoPokemon {
     };
 
 
-    remover(id: number): void {
+   async remover(id: number): Promise<void>{
         const existe = this.pokemons.some((pokemon) => pokemon.id === id);
 
         if(existe === false){
@@ -39,6 +52,9 @@ export class CatalogoPokemon {
         }
 
         this.pokemons = this.pokemons.filter((pokemon) => pokemon.id !== id )
+
+        await this.boxService.salvar(this.pokemons);
+        
         console.log("[OK] Pokémon removido do catálogo.")
         
     }

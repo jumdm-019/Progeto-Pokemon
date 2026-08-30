@@ -62,7 +62,7 @@ private catalogo: CatalogoPokemon;
             if(pokemon === null){
                 console.log("Pokemon não existe.")
             }else{
-                this.catalogo.adicionar(pokemon)
+               await this.catalogo.adicionar(pokemon)
             }
         }
 
@@ -71,7 +71,7 @@ private catalogo: CatalogoPokemon;
 
             const numeroId = Number(id)
 
-            this.catalogo.remover(numeroId)
+            await this.catalogo.remover(numeroId)
 
         }
 

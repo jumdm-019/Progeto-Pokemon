@@ -9,6 +9,7 @@ async function main() {
     const catalogo = new CatalogoPokemon();
     const terminal = new TerminalController(api, catalogo);
 
+      await catalogo.carregar();
 
       await terminal.iniciar();
 
